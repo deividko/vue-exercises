@@ -25,8 +25,8 @@ export default defineComponent({
       Contador: {{ counter }}
     </TheTitle>
     <div class="buttons">
-      <button @click="increment">Increment</button>
-      <button @click="decrement">Decrement</button>
+      <button v-if="counter < 10" @click="increment">Increment</button>
+      <button v-if="counter > 0" @click="decrement">Decrement</button>
     </div>
   </div>
 </template>
