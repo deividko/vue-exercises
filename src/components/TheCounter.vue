@@ -19,10 +19,13 @@ export default defineComponent({
   },
 });
 </script>
+
 <template>
   <div class="counter">
     <TheTitle>
-      Contador: {{ counter }}
+      <span :class="{ 'counter--max': counter === 10 }">
+        Contador: {{ counter }}
+      </span>
     </TheTitle>
     <div class="buttons">
       <button v-if="counter < 10" @click="increment">Increment</button>
@@ -35,6 +38,12 @@ export default defineComponent({
 .counter {
   text-align: center;
   margin: 2em;
+
+  &--max {
+    color: $btn-red;
+    font-weight: bold;
+    font-size: 1.2em;
+  }
 }
 
 .buttons button {
@@ -47,14 +56,6 @@ export default defineComponent({
   background-color: $primary-color;
   color: white;
   transition: background-color 0.3s;
-}
-
-.buttons button:hover {
-  background-color: $primary-color;
-}
-
-.buttons button:active {
-  background-color: $primary-color;
 }
 
 .buttons button:nth-child(2) {
