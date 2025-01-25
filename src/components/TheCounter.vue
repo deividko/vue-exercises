@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, computed  } from "vue";
 import TheTitle from "./TheTitle.vue";
 import { useCounter } from "../composables/userCounter";
 
@@ -10,11 +10,13 @@ export default defineComponent({
   },
   setup() {
     const { counter, increment, decrement } = useCounter();
+    const doubledCounter = computed(() => counter.value * 2);
 
     return {
       counter,
       increment,
       decrement,
+      doubledCounter
     };
   },
 });
@@ -27,6 +29,9 @@ export default defineComponent({
         Contador: {{ counter }}
       </span>
     </TheTitle>
+    <h3 class="counter__doubled">
+      Contador Duplicado: {{ doubledCounter }}
+    </h3>
     <div class="buttons">
       <button v-if="counter < 10" @click="increment">Increment</button>
       <button v-if="counter > 0" @click="decrement">Decrement</button>
@@ -43,6 +48,11 @@ export default defineComponent({
     color: $btn-red;
     font-weight: bold;
     font-size: 1.2em;
+  }
+  &__doubled {
+    margin-top: 1em;
+    font-size: 1.5em;
+    color: $secondary-color;
   }
 }
 
