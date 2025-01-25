@@ -10,12 +10,8 @@ export default {
 </script>
 <template>
   <div id="app">
-    <TheTitle propTitle="Este es un título dinámico" />
+    <TheTitle>
+      Este es un título dinámico con slot
+    </TheTitle>
   </div>
 </template>
-
-
-
-<style>
-
-</style>
