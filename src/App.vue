@@ -2,6 +2,7 @@
 import TheTitle from "./components/TheTitle.vue";
 import TheCounter from "./components/TheCounter.vue";
 import ParentComponent from "./components/ParentComponent.vue";
+import SocialIcons from "./components/SocialIcons.vue";
 
 
 export default {
@@ -9,7 +10,8 @@ export default {
   components: {
     TheTitle,
     TheCounter,
-    ParentComponent
+    ParentComponent,
+    SocialIcons
   },
 };
 </script>
@@ -21,6 +23,7 @@ export default {
     <TheCounter />
     <router-view />
     <ParentComponent />
+    <SocialIcons />
   </div>
 </template>
 
