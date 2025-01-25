@@ -1,21 +1,22 @@
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, inject } from "vue";
 
 export default defineComponent({
   name: "ChildComponent",
-  emits: ["greet"],
-  methods: {
-    emitGreet() {
-      this.$emit("greet", "Hola padre!");
-    },
+  setup() {
+    const parentMessage = inject<string>("parentMessage");
+    return { parentMessage };
   },
 });
 </script>
 
 <template>
   <div class="child-component">
-    <button class="child-component__button" @click="emitGreet">
-      Hola Padre
+    <p class="child-component__message">
+      Mensaje recibido del padre: {{ parentMessage || "No hay mensaje." }}
+    </p>
+    <button class="child-component__button">
+      Este botón es solo decorativo
     </button>
   </div>
 </template>
@@ -24,6 +25,12 @@ export default defineComponent({
 .child-component {
   text-align: center;
   margin: 1em 0;
+
+  &__message {
+    margin-bottom: 1em;
+    font-size: 1.2em;
+    color: $txt-grey;
+  }
 
   &__button {
     padding: 1.5em 1.8em;
@@ -39,4 +46,3 @@ export default defineComponent({
   }
 }
 </style>
-

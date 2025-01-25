@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, provide } from "vue";
 import ChildComponent from "./ChildComponent.vue";
 
 export default defineComponent({
@@ -7,15 +7,9 @@ export default defineComponent({
   components: {
     ChildComponent,
   },
-  data() {
-    return {
-      messageFromChild: "",
-    };
-  },
-  methods: {
-    handleGreet(message: string) {
-      this.messageFromChild = message;
-    },
+  setup() {
+    const parentMessage = "¡Hola desde ParentComponent!";
+    provide("parentMessage", parentMessage);
   },
 });
 </script>
@@ -24,9 +18,9 @@ export default defineComponent({
   <section class="parent-component">
     <h2 class="parent-component__title">========= Parent Component =========</h2>
     <p class="parent-component__message">
-      {{ messageFromChild || "No message yet." }}
+      Este es el mensaje proporcionado al hijo a través de provide/inject.
     </p>
-    <ChildComponent @greet="handleGreet" />
+    <ChildComponent />
   </section>
 </template>
 
