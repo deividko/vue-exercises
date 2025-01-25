@@ -10,7 +10,7 @@ export default {
 </script>
 <template>
   <div id="app">
-    <TheTitle />
+    <TheTitle propTitle="Este es un título dinámico" />
   </div>
 </template>
 

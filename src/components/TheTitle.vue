@@ -1,14 +1,21 @@
 
 <template>
-  <h2 class="title">Título estático</h2>
+  <h2 class="title">{{ propTitle }}</h2>
 </template>
 
 <script lang="ts">
-export default {
-  name: "TheTitle",
-};
-</script>
+import { defineComponent } from "vue";
 
+export default defineComponent({
+  name: "TheTitle",
+  props: {
+    propTitle: {
+      type: String,
+      required: true,
+    },
+  },
+});
+</script>
 <style scoped lang="scss">
 .title {
   font-size: 34px;
