@@ -44,24 +44,24 @@ export default defineComponent({
   cursor: pointer;
   border: none;
   border-radius: 0.25em;
-  background-color: #4caf50;
+  background-color: $primary-color;
   color: white;
   transition: background-color 0.3s;
 }
 
 .buttons button:hover {
-  background-color: #45a049;
+  background-color: $primary-color;
 }
 
 .buttons button:active {
-  background-color: #3e8e41;
+  background-color: $primary-color;
 }
 
 .buttons button:nth-child(2) {
-  background-color: #f44336;
+  background-color: $secondary-color;
 }
 
 .buttons button:nth-child(2):hover {
-  background-color: #e53935;
+  background-color: $secondary-color;
 }
 </style>

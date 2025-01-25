@@ -1,7 +1,18 @@
 import { createRouter, createWebHistory } from 'vue-router';
+import Home from "../views/Home.vue";
+import Catalogo from "../views/Catalogo.vue";
 
 const routes = [
-  // Agrega tus rutas aquí cuando las necesites
+  {
+    path: "/",
+    name: "Home",
+    component: Home,
+  },
+  {
+    path: "/catalogo",
+    name: "Catalogo",
+    component: Catalogo,
+  },
 ];
 
 const router = createRouter({

@@ -16,5 +16,6 @@ export default {
       Este es un título dinámico con slot
     </TheTitle>
     <TheCounter />
+    <router-view />
   </div>
 </template>
