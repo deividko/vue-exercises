@@ -2,15 +2,19 @@
 import { defineComponent } from "vue";
 import { products } from "../data/mock";
 import ProductCard from "../components/ProductCard.vue";
+import { useCounterStore } from "../stores/counterStore";
 
 export default defineComponent({
   name: "Catalogo",
   components: {
     ProductCard,
   },
-  data() {
+  setup() {
+    const counterStore = useCounterStore();
+
     return {
       products,
+      counter: counterStore.counter,
     };
   },
 });
@@ -18,7 +22,8 @@ export default defineComponent({
 
 <template>
   <section class="catalog">
-    <h1 class="catalog__title">Catalog</h1>
+    <h1 class="catalog__title">Catálogo</h1>
+    <p class="catalog__counter">El contador global está en: {{ counter }}</p>
     <div class="catalog__list">
       <ProductCard
         v-for="product in products"
@@ -29,7 +34,7 @@ export default defineComponent({
         :price="product.price"
       />
     </div>
-    <RouterLink to="/" class="catalog__button">Go to Home</RouterLink>
+    <RouterLink to="/" class="catalog__button">Volver al Inicio</RouterLink>
   </section>
 </template>
 
@@ -39,6 +44,12 @@ export default defineComponent({
 
   &__title {
     font-size: 2em;
+    margin-bottom: 1em;
+  }
+
+  &__counter {
+    font-size: 1.2em;
+    color: #666;
     margin-bottom: 1em;
   }
 

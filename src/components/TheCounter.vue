@@ -2,6 +2,7 @@
 import { defineComponent, computed  } from "vue";
 import TheTitle from "./TheTitle.vue";
 import { useCounter } from "../composables/userCounter";
+import { useCounterStore } from "../stores/counterStore";
 
 export default defineComponent({
   name: "TheCounter",
@@ -9,6 +10,7 @@ export default defineComponent({
     TheTitle,
   },
   setup() {
+    const counterStore = useCounterStore();
     const { counter, increment, decrement } = useCounter();
     const doubledCounter = computed(() => counter.value * 2);
 
@@ -27,7 +29,8 @@ export default defineComponent({
       increment,
       decrement,
       doubledCounter,
-      counterMessage
+      counterMessage,
+      counterStore
     };
   },
 });
