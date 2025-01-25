@@ -12,11 +12,22 @@ export default defineComponent({
     const { counter, increment, decrement } = useCounter();
     const doubledCounter = computed(() => counter.value * 2);
 
+    const counterMessage = computed(() => {
+      if (counter.value === 0) {
+        return "Estás en el valor mínimo";
+      } else if (counter.value === 10) {
+        return "Estás en el valor máximo";
+      } else {
+        return "Estás en los parámetros adecuados";
+      }
+    });
+
     return {
       counter,
       increment,
       decrement,
-      doubledCounter
+      doubledCounter,
+      counterMessage
     };
   },
 });
@@ -28,6 +39,7 @@ export default defineComponent({
       <span :class="{ 'counter--max': counter === 10 }">
         Contador: {{ counter }}
       </span>
+      <p class="counter__message">{{ counterMessage }}</p>
     </TheTitle>
     <h3 class="counter__doubled">
       Contador Duplicado: {{ doubledCounter }}
@@ -48,6 +60,11 @@ export default defineComponent({
     color: $btn-red;
     font-weight: bold;
     font-size: 1.2em;
+  }
+  &__message {
+    margin-top: 0.5em;
+    font-size: 1em;
+    color: #555;
   }
   &__doubled {
     margin-top: 1em;
