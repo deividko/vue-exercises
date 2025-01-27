@@ -1,17 +1,8 @@
-<script lang="ts">
-import { defineComponent } from "vue";
-
-export default defineComponent({
-  name: "SocialIcons",
-  data() {
-    return {
-      socialNetworks: [
-        { name: "facebook", component: "IconFacebook" },
-        { name: "twitter", component: "IconTwitter" },
-      ],
-    };
-  },
-});
+<script setup lang="ts">
+const socialNetworks = [
+  { name: 'facebook', component: 'IconFacebook' },
+  { name: 'twitter', component: 'IconTwitter' },
+]
 </script>
 
 <template>

@@ -1,20 +1,16 @@
-<script lang="ts">
-import { defineComponent } from "vue";
+<script setup lang="ts">
+import { defineProps } from 'vue'
 
-export default defineComponent({
-  name: "ProductCard",
-  props: {
-    image: { type: String, required: true },
-    title: { type: String, required: true },
-    description: { type: String, required: true },
-    price: { type: Number, required: true },
-  },
-  methods: {
-    addToCart() {
-      alert(`Added "${this.title}" to the cart!`);
-    },
-  },
-});
+const props = defineProps<{
+  image: string
+  title: string
+  description: string
+  price: number
+}>()
+
+function addToCart() {
+  alert(`Added "${props.title}" to the cart!`)
+}
 </script>
 
 <template>

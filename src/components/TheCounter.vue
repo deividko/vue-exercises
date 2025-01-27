@@ -1,52 +1,33 @@
-<script lang="ts">
-import { defineComponent, computed  } from "vue";
-import TheTitle from "./TheTitle.vue";
-import { useCounter } from "../composables/userCounter";
-import { useCounterStore } from "../stores/counterStore";
+<script setup lang="ts">
+import { computed } from 'vue'
+import TheTitle from './TheTitle.vue'
+import { useCounter } from '../composables/userCounter'
+import { useCounterStore } from '../stores/counterStore'
 
-export default defineComponent({
-  name: "TheCounter",
-  components: {
-    TheTitle,
-  },
-  setup() {
-    const counterStore = useCounterStore();
-    const { counter, increment, decrement } = useCounter();
-    const doubledCounter = computed(() => counter.value * 2);
+const counterStore = useCounterStore()
 
-    const counterMessage = computed(() => {
-      if (counter.value === 0) {
-        return "Estás en el valor mínimo";
-      } else if (counter.value === 10) {
-        return "Estás en el valor máximo";
-      } else {
-        return "Estás en los parámetros adecuados";
-      }
-    });
+const doubledCounter = computed(() => counter.value * 2)
 
-    return {
-      counter,
-      increment,
-      decrement,
-      doubledCounter,
-      counterMessage,
-      counterStore
-    };
-  },
-});
+const { counter, increment, decrement } = useCounter()
+
+const counterMessage = computed(() => {
+  if (counter.value === 0) {
+    return 'Estás en el valor mínimo'
+  } else if (counter.value === 10) {
+    return 'Estás en el valor máximo'
+  } else {
+    return 'Estás en los parámetros adecuados'
+  }
+})
 </script>
 
 <template>
   <div class="counter">
     <TheTitle>
-      <span :class="{ 'counter--max': counter === 10 }">
-        Contador: {{ counter }}
-      </span>
+      <span :class="{ 'counter--max': counter === 10 }"> Contador: {{ counter }} </span>
       <p class="counter__message">{{ counterMessage }}</p>
     </TheTitle>
-    <h3 class="counter__doubled">
-      Contador Duplicado: {{ doubledCounter }}
-    </h3>
+    <h3 class="counter__doubled">Contador Duplicado: {{ doubledCounter }}</h3>
     <div class="buttons">
       <button v-if="counter < 10" @click="increment">Increment</button>
       <button v-if="counter > 0" @click="decrement">Decrement</button>

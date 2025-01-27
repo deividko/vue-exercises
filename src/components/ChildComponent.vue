@@ -1,23 +1,15 @@
-<script lang="ts">
-import { defineComponent, inject } from "vue";
+<script setup lang="ts">
+import { inject } from 'vue'
 
-export default defineComponent({
-  name: "ChildComponent",
-  setup() {
-    const parentMessage = inject<string>("parentMessage");
-    return { parentMessage };
-  },
-});
+const parentMessage = inject<string>('parentMessage')
 </script>
 
 <template>
   <div class="child-component">
     <p class="child-component__message">
-      Mensaje recibido del padre: {{ parentMessage || "No hay mensaje." }}
+      Mensaje recibido del padre: {{ parentMessage || 'No hay mensaje.' }}
     </p>
-    <button class="child-component__button">
-      Este botón es solo decorativo
-    </button>
+    <button class="child-component__button">Este botón es solo decorativo</button>
   </div>
 </template>
 

@@ -1,17 +1,8 @@
 <script lang="ts">
-import { defineComponent, provide } from "vue";
-import ChildComponent from "./ChildComponent.vue";
-
-export default defineComponent({
-  name: "ParentComponent",
-  components: {
-    ChildComponent,
-  },
-  setup() {
-    const parentMessage = "¡Hola desde ParentComponent!";
-    provide("parentMessage", parentMessage);
-  },
-});
+import { provide } from 'vue'
+import ChildComponent from './ChildComponent.vue'
+const parentMessage = '¡Hola desde ParentComponent!'
+provide('parentMessage', parentMessage)
 </script>
 
 <template>
