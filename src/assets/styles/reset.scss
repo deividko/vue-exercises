@@ -4,10 +4,11 @@ $blue-cards: #1976d2;
 $blue-button: #2196f3;
 $white: white;
 $border-card: #ccc;
-$txt-black:black;
+$txt-black: black;
 $btn-red: red;
 $txt-grey: grey;
 $font-stack: 'Arial', sans-serif;
+$background-page: #1a1919;
 
 * {
   margin: 0;
@@ -17,5 +18,5 @@ $font-stack: 'Arial', sans-serif;
 
 body {
   font-family: $font-stack;
-  color: $primary-color; 
+  color: $primary-color;
 }
