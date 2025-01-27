@@ -1,26 +1,10 @@
-<script lang="ts">
-import TheTitle from "./components/TheTitle.vue";
-import TheCounter from "./components/TheCounter.vue";
-import ParentComponent from "./components/ParentComponent.vue";
-import SocialIcons from "./components/SocialIcons.vue";
-
-
-export default {
-  name: "App",
-  components: {
-    TheTitle,
-    TheCounter,
-    ParentComponent,
-    SocialIcons
-  },
-};
+<script setup lang="ts">
+import TheTitle from './components/TheTitle.vue'
+import SocialIcons from './components/SocialIcons.vue'
 </script>
 <template>
   <div id="app">
-    <TheTitle>
-      Este es un título dinámico con slot
-    </TheTitle>
-    <TheCounter />
+    <TheTitle> Este es un título dinámico con slot </TheTitle>
     <router-view />
     <ParentComponent />
     <SocialIcons />
@@ -33,8 +17,8 @@ export default {
   line-height: 1.6;
   margin: 0;
   padding: 0;
-  background-color: #1a1919;
-  min-height: 100vh;
+  background-color: $background-page;
+  min-height: 90em;
   display: flex;
   flex-direction: column;
   align-items: center;

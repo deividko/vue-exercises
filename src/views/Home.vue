@@ -1,13 +1,5 @@
-<script lang="ts">
-import { defineComponent } from "vue";
-import TheCounter from "../components/TheCounter.vue";
-
-export default defineComponent({
-  name: "Home",
-  components: {
-    TheCounter,
-  },
-});
+<script setup lang="ts">
+import TheCounter from '../components/TheCounter.vue'
 </script>
 
 <template>

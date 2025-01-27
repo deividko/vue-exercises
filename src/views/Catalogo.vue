@@ -1,23 +1,10 @@
-<script lang="ts">
-import { defineComponent } from "vue";
-import { products } from "../data/mock";
-import ProductCard from "../components/ProductCard.vue";
-import { useCounterStore } from "../stores/counterStore";
+<script setup lang="ts">
+import ProductCard from '../components/ProductCard.vue'
+import { products } from '../data/mock'
+import { useCounterStore } from '../stores/counterStore'
+const counterStore = useCounterStore()
 
-export default defineComponent({
-  name: "Catalogo",
-  components: {
-    ProductCard,
-  },
-  setup() {
-    const counterStore = useCounterStore();
-
-    return {
-      products,
-      counter: counterStore.counter,
-    };
-  },
-});
+const { counter } = counterStore
 </script>
 
 <template>
@@ -62,7 +49,7 @@ export default defineComponent({
   &__button {
     margin-top: 1em;
     padding: 0.5em 1em;
-    background-color: #2196f3;
+    background-color: $secondary-color;
     color: white;
     border: none;
     border-radius: 0.25em;
